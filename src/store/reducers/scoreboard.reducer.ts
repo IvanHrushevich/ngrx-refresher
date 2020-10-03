@@ -2,6 +2,8 @@ import { createReducer, on } from '@ngrx/store';
 
 import * as ScoreboardPageActions from '../actions/scoreboard-actions';
 
+export const scoreboardFeatureKey = 'game';
+
 export interface State {
   home: number;
   away: number;
