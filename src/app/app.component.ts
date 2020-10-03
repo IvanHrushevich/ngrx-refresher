@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { login } from './../store/actions';
+import { homeScore } from './../store/actions';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { login } from './../store/actions';
 })
 export class AppComponent {
   constructor(private readonly store: Store) {}
-  public onLoginButtonClick(): void {
-    this.store.dispatch(login({ username: 'username', password: 'password' }));
+  public onHomeScoreButtonClick(): void {
+    this.store.dispatch(homeScore());
   }
 }
