@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
+import { ScoreboardEffects } from './effects';
 import * as fromScoreboard from './reducers/scoreboard.reducer';
 
 @NgModule({
@@ -9,6 +11,7 @@ import * as fromScoreboard from './reducers/scoreboard.reducer';
       fromScoreboard.scoreboardFeatureKey,
       fromScoreboard.scoreboardReducer
     ),
+    EffectsModule.forFeature([ScoreboardEffects]),
   ],
 })
 export class ScoreboardModule {}
