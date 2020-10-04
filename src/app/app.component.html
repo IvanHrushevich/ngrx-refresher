@@ -1,5 +1,8 @@
 <h1>NGRX refresher</h1>
 <hr />
 <button (click)="onHomeScoreButtonClick()">Home Score</button>
+<br />
+<button (click)="onAwayScoreButtonClick()">Away Score</button>
 <hr />
 <p>Home: {{ home$ | async }}</p>
+<p>Away: {{ away$ | async }}</p>
