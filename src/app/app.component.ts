@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { awayScore, homeScore } from '../store/actions';
-import { selectAway, selectHome } from '../store/selectors';
+import { selectallGoals, selectAway, selectHome } from '../store/selectors';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +15,14 @@ import { selectAway, selectHome } from '../store/selectors';
 export class AppComponent implements OnInit {
   public home$: Observable<number>;
   public away$: Observable<number>;
+  public allGoals$: Observable<number>;
 
   constructor(private readonly store: Store) {}
 
   public ngOnInit(): void {
-    this.home$ = this.store.select(selectHome, { numberToAdd: 100 });
-    this.away$ = this.store.select(selectAway, { numberToAdd: 100 });
+    this.home$ = this.store.select(selectHome);
+    this.away$ = this.store.select(selectAway);
+    this.allGoals$ = this.store.select(selectallGoals);
   }
 
   public onHomeScoreButtonClick(): void {

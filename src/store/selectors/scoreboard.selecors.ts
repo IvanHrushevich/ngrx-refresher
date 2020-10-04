@@ -9,10 +9,16 @@ export const selectGame = createFeatureSelector<AppState, GameState>(
 
 export const selectHome = createSelector(
   selectGame,
-  (game: GameState, props: any) => game.home + props.numberToAdd
+  (game: GameState) => game.home
 );
 
 export const selectAway = createSelector(
   selectGame,
-  (game: GameState, props: any) => game.away + props.numberToAdd
+  (game: GameState) => game.away
+);
+
+export const selectallGoals = createSelector(
+  selectHome,
+  selectAway,
+  (home, away) => home + away
 );
